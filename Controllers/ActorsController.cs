@@ -54,7 +54,7 @@ namespace ShowdeBola.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name_actor,Movie_Id")] Actor actor)
+        public async Task<IActionResult> Create([Bind("Id,Name_actor,movieId")] Actor actor)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace ShowdeBola.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name_actor,Movie_Id")] Actor actor)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name_actor,movieId")] Actor actor)
         {
             if (id != actor.Id)
             {

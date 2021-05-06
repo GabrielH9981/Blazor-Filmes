@@ -15,9 +15,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name_actor)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movie_Id)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -26,9 +23,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name_actor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Movie_Id)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

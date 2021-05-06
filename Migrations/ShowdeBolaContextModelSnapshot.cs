@@ -22,15 +22,17 @@ namespace ShowdeBola.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Movie_Id")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Name_actor")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(60);
 
+                    b.Property<int?>("movieId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("movieId");
 
                     b.ToTable("Actor");
                 });
@@ -65,6 +67,13 @@ namespace ShowdeBola.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movie");
+                });
+
+            modelBuilder.Entity("ShowdeBola.Models.Actor", b =>
+                {
+                    b.HasOne("ShowdeBola.Models.Movie", "movie")
+                        .WithMany("Actors")
+                        .HasForeignKey("movieId");
                 });
 #pragma warning restore 612, 618
         }
