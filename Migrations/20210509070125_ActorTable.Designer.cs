@@ -9,7 +9,7 @@ using ShowdeBola.Data;
 namespace ShowdeBola.Migrations
 {
     [DbContext(typeof(ShowdeBolaContext))]
-    [Migration("20210509064138_ActorTable")]
+    [Migration("20210509070125_ActorTable")]
     partial class ActorTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
