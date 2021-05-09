@@ -41,7 +41,12 @@
             @Html.DisplayFor(model => model.Rating)
         </dd>
         <dd class = "col-sm-10">
-            Atores: 
+            Atores:
+            @foreach (var item in Model.Actors)
+            {
+                @item.Name_actor
+                @Html.Label(" --- ")
+            }
         </dd>
     </dl>
 </div>

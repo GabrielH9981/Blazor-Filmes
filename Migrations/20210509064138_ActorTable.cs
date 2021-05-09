@@ -31,23 +31,23 @@ namespace ShowdeBola.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name_actor = table.Column<string>(maxLength: 60, nullable: false),
-                    movieId = table.Column<int>(nullable: true)
+                    MovieId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Actor", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Actor_Movie_movieId",
-                        column: x => x.movieId,
+                        name: "FK_Actor_Movie_MovieId",
+                        column: x => x.MovieId,
                         principalTable: "Movie",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Actor_movieId",
+                name: "IX_Actor_MovieId",
                 table: "Actor",
-                column: "movieId");
+                column: "MovieId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

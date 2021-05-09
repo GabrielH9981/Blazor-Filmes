@@ -34,6 +34,7 @@ namespace ShowdeBola.Models
         [StringLength(4)]
         [Required]
         public string Rating {get; set;}
+
         public ICollection<Actor> Actors { get; set; }
     }
 }

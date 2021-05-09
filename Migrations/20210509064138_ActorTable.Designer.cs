@@ -9,7 +9,7 @@ using ShowdeBola.Data;
 namespace ShowdeBola.Migrations
 {
     [DbContext(typeof(ShowdeBolaContext))]
-    [Migration("20210506231203_ActorTable")]
+    [Migration("20210509064138_ActorTable")]
     partial class ActorTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,17 +24,17 @@ namespace ShowdeBola.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("MovieId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name_actor")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(60);
 
-                    b.Property<int?>("movieId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("movieId");
+                    b.HasIndex("MovieId");
 
                     b.ToTable("Actor");
                 });
@@ -75,7 +75,9 @@ namespace ShowdeBola.Migrations
                 {
                     b.HasOne("ShowdeBola.Models.Movie", "movie")
                         .WithMany("Actors")
-                        .HasForeignKey("movieId");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

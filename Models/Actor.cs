@@ -12,7 +12,7 @@ namespace ShowdeBola.Models
         [StringLength(60, MinimumLength= 3)]
         [Required]
         public string Name_actor {get; set;}// o Nome é obrigatório e deve ter de 3 a 60 caracteres
-
+        public int MovieId { get; set; }
         public Movie movie {get; set;}
     }
 }

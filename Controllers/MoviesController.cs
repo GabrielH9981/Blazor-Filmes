@@ -25,6 +25,7 @@ namespace ShowdeBola.Controllers
             return View(await _context.Movie.ToListAsync());
         }
 
+        private List<Actor> actorsList = new List<Actor>();
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -33,7 +34,13 @@ namespace ShowdeBola.Controllers
                 return NotFound();
             }
 
+            /* var actors = _context.Actor.Include(a => a.movie);
+            foreach (Actor a in actors){
+                actorsList.Add(a);
+            } */
+
             var movie = await _context.Movie
+                .Include(m => m.Actors)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (movie == null)
             {
